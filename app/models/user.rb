@@ -8,4 +8,10 @@ class User < ApplicationRecord
   validates :password,presence: true,format: {with: VALID_PASWAD_REGEX}
   
   has_secure_password
+  
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
+  
+  has_many :posts
+
 end
