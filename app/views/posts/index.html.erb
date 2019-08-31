@@ -1,0 +1,21 @@
+<div class="gelande-index-wrapper">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="gelande-index-single">
+            <h2 class="gelande-information">
+              <%= post.title %>
+            </h2>
+            <p class="gelande-information">
+              場所：<%= post.gelande_id %><br>
+              日付：<%= post.date %><br>
+              手段：<%= post.how %><br>
+              <%= post.text %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
