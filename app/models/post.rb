@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   validates :how, presence: true
   
   belongs_to :user
-  has_one :gelande
+  belongs_to :gelande
 end

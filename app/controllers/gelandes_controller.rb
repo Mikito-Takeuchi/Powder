@@ -10,12 +10,12 @@ class GelandesController < ApplicationController
   def create
     @gelande = Gelande.new(gelande_params)
     
-    @gelande.save
+    if @gelande.save
       redirect_to gelandes_path, success: '作成に成功しました'
-    # else
-    #   flash.now[:danger] = "作成に失敗しました"
-    #   render :new
-    # end
+    else
+      flash.now[:danger] = "作成に失敗しました"
+      render :new
+    end
   end
 
   private
