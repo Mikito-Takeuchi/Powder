@@ -12,5 +12,12 @@
         <%= link_to 'ログイン', login_path, class: 'btn btn-block btn-white' %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <% if logged_in? %>
+          <%= link_to 'プロフィール登録', new_profile_path, class: 'btn btn-block btn-white' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

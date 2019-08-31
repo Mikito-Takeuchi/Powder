@@ -11,7 +11,10 @@
               場所：<%= post.gelande_id %><br>
               日付：<%= post.date %><br>
               手段：<%= post.how %><br>
-              <%= post.text %>
+              <%= post.text %><br><br>
+              <% if logged_in? %>
+                <%= link_to "編集",edit_post_path(post.id) %>
+              <% end %>
             </p>
           </div>
         </div>

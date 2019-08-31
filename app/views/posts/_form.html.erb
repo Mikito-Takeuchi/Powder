@@ -1,0 +1,26 @@
+<%= form_for @post do |f| %>
+  <div class="form-group">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :場所 %>
+    <%= f.collection_select :gelande_id, Gelande.all, :id, :name, :include_blank => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :日付 %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :どうやって行く？ %>
+    <%= f.text_field :how, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :本文 %>
+    <%= f.text_area :text, class: 'form-control' %>
+  </div>
+  <% if logged_in? %>
+    <%= f.submit '投稿する', class: 'btn btn-black btn-block' %>
+  <% end %>
+
+<% end %>
