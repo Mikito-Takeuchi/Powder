@@ -1,23 +1,36 @@
 <div class="top-hero-wrapper text-center">
   <div class="container top-hero-container">
     <h1 class="text-white">Powder</h1>
-    <h2 class="text-white">スノボ仲間を見つけませんか？</h2>
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4">
-        <%= link_to '登録はこちら', new_user_path, class: 'btn btn-block btn-white' %>
+    <h2 class="text-white">スキー・スノボ仲間を見つけませんか？</h2>
+    <% if logged_in? %>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-3">
+          <%= link_to 'ユーザープロフィール', '/users/show', class: 'btn btn-block btn-white' %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to 'ログアウト', logout_path, class: 'btn btn-block btn-white' %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4">
-        <%= link_to 'ログイン', login_path, class: 'btn btn-block btn-white' %>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-3">
+          <%= link_to '新規募集', new_post_path, class: 'btn btn-block btn-white' %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to '募集一覧', posts_path, class: 'btn btn-block btn-white' %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4">
-        <% if logged_in? %>
-          <%= link_to 'プロフィール登録', new_profile_path, class: 'btn btn-block btn-white' %>
-        <% end %>
+    <% else %>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <%= link_to '登録はこちら', new_user_path, class: 'btn btn-block btn-white' %>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <%= link_to 'ログイン', login_path, class: 'btn btn-block btn-white' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
