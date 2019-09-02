@@ -1,8 +1,4 @@
 class ProfilesController < ApplicationController
-  def show
-    @profile = profile.find(params[:id])
-  end
-  
   def new
     @profile = current_user.build_profile
   end

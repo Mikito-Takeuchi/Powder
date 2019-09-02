@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.joins(:gelande)
+    # byebug
   end
   
   
@@ -10,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-#binding.pry
+#binding pry
     if @post.save
       redirect_to posts_path, success: '作成に成功しました'
     else
