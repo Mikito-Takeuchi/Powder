@@ -13,5 +13,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   
   has_many :posts
+  
+  has_many :participants
 
 end

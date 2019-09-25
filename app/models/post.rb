@@ -8,4 +8,7 @@ class Post < ApplicationRecord
   
   belongs_to :user
   belongs_to :gelande
+  
+  has_many :participants
+  has_many :participant_users, through: :participants, source: 'user'
 end

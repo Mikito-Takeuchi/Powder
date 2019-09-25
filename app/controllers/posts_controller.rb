@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
     # @posts = Post.all
-    @posts = Post.joins(:gelande)
+    # @posts = Post.joins(:gelande)
+     @posts = Post.all.includes(:participant_users)
     # byebug
   end
   

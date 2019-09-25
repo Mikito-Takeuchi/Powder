@@ -11,7 +11,20 @@
               場所：<%= post.gelande.name %><br>
               日付：<%= post.date %><br>
               手段：<%= post.how %><br>
-              <%= post.text %><br><br>
+              <%= post.text %><br>
+            </p>
+            <h3>
+            <% if !post.participant_users.include?(current_user) %>
+              <%= link_to participants_path(post_id: post.id), method: :post do %>
+                <%= image_tag 'join-powder.png', class: 'post-index-icon' %>
+              <% end %>
+            <% else %>
+              <%= link_to participants_path(post_id: post.id), method: :delete do %>
+                <%= image_tag 'cancel-powder.png' , class: 'post-index-icon'%>
+              <% end %>
+            <% end %>
+            </h3>
+            <p>
               <% if logged_in? %>
                 <%= link_to "編集",edit_post_path(post.id) %>
               <% end %>

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :profiles
   resources :gelandes
   resources :posts
+  resources :participants
 end
